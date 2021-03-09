@@ -20,6 +20,7 @@ function writePassword() {
 
   //Prompts the user for the password criteria
   var pwLength = prompt ("How many characters?\n(hint: between 8 and 128)");
+
   // checks for the length to be between 8 and 128
   while (pwLength < 8 || pwLength > 128) {
     pwLength = prompt ("Let's try this again.\nHow many characters?\n(HINT: between 8 and 128)");
@@ -31,7 +32,7 @@ function writePassword() {
   var pwSpecial = confirm("We'll use at least one lowercase letter.\n(hint: OK means your cool with it, CANCEL means nah)");
   
   generatePassword();
-  
+
   //generates the password based on the criteria
   function generatePassword () {
     var returnPassword = "";
@@ -91,6 +92,11 @@ function writePassword() {
       initialChars[j] = k;
     }
     console.log(initialChars);
+    returnPassword = initialChars.join ("");
+
+    console.log (returnPassword);
+
+    return returnPassword;
   }
 }
 
