@@ -13,25 +13,25 @@ function writePassword() {
   var i = 0;
   var initialChars = [];
   var charSet = "";
- 
-  
-  
+
   // Random Number function
   function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  // checks for the length to be between 8 and 128
-  
   var pwLength = document.querySelector("#pwLength").value;
-  
-  // while (pwLength < 8 || pwLength > 128) {
-  //   pwLength = confirm ("Let's try this again.\nHow many characters?\n(HINT: between 8 and 128)");
-  // }
-  console.log (pwLength);
+
+  //This if loop checks to make sure the password length is between 8 and 128
+  if (pwLength < 8 || pwLength > 128) {
+    pwLength = alert("Password length is between 8 and 128 characters.");
+
+    return;
+  }
+
   function generatePassword() {
     var returnPassword = "";
 
+    // these if statements will generate at least on character from the criteria selected and add that character set to the pool of characters to be randomly added in the next step
     if (document.querySelector("#pwLowerCase").checked) {
       initialChars[i] = letters.charAt(getRndInteger(0, 25));
       i++;
@@ -55,28 +55,29 @@ function writePassword() {
       i++;
       charSet += special;
     }
-    //now to fill in the rest of the initial pw charset with the rest of the characters
-    //each character will come from a combined pool since we don't need to include at 
-    // least one from a criteria anymore although we will still only allow the preselcted criteria to form the pool
+
+    // this while loop fill in the rest of the characters at random from the character pool created in the previous step
     while (i < pwLength) {
       initialChars[i] = charSet.charAt(getRndInteger(0, charSet.length - 1))
       i++;
       console.log(pwLength);
     }
 
-    // now we have an array with the right length and charater types but we preselected some of the characters in a predictable way
-    // we will now randomize the order of the characters in the array using the Fisher Yates method
+    // now we have an array with the right length and charater types but we preselected some of the characters in a predictable way so we will now randomize the order of the characters in the array using the Fisher Yates method
     for (i = initialChars.length - 1; i > 0; i--) {
       j = Math.floor(Math.random() * i);
       k = initialChars[i];
       initialChars[i] = initialChars[j];
       initialChars[j] = k;
     }
+
+    // this turns the array into a String
     returnPassword = initialChars.join("");
 
     return returnPassword;
   }
- 
+  // end generatePassword function
+
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
@@ -84,7 +85,7 @@ function writePassword() {
 
 
 }
-// end writePassword
+// end writePassword function
 
-// Add event listener to generate button
+// event listener to generate button
 generateBtn.addEventListener("click", writePassword);
