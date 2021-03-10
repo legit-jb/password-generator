@@ -3,35 +3,19 @@
 ## Description
 A password generator that does the following"
 
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
+The password criteria is determined through check boxes so the user can change the settings at any time before the password is generated. It also give instant verification through the use of check marks and the number.
 
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
+The length of the password is between 8 and 128 characters. If the user enters a value that is not within that range an alert informs the user of the range and stops the app.
 
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password each in a seperate prompt
+md ![password alert](./assets/images/screenshot.png)
 
-WHEN prompted for character types to include in the password
-THEN I choose lowercase, uppercase, numeric, and/or special characters
+The characger types are: lowercase, uppercase, numeric, and/or special characters.
 
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
+A password is generated that matches the selected criteria when the button "Generate Password" is clicked.
 
-## Table of Contents (Optional)
-If your README is long, add a table of contents to make it easy for users to find what they need.
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
-## Installation
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
-## Usage
-Provide instructions and examples for use. Include screenshots as needed.
+The password is then displayed on the page.
+
+
 To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
     ```md
     ![alt text](assets/images/screenshot.png)

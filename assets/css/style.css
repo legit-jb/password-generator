@@ -24,6 +24,10 @@ header {
   color: hsl(206, 17%, 28%);
 }
 
+h1 {
+  font-size: 200%;
+}
+
 .card {
   background-color: hsl(0, 3%, 85%);
   border-radius: 10px;
@@ -34,25 +38,29 @@ header {
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
-  display: flexbox;
-}
-
-.card-body {
-  min-height: 100px;
 }
 
 #pwCriteria {
-  padding-top: 1%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding-top: 2%;
 }
 
 .criteria {
   padding: 1%;
-  display: flexbox;
-  justify-content: space-between;
+}
+
+#password {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 80%;
+  height: 80px;
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 7px;
+}
+
+textarea {
+  border-width: 0px;
 }
 
 .btn {
@@ -73,21 +81,6 @@ header {
 button[disabled] {
   cursor: default;
   background: #c0c7cf;
-}
-
-#password {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  width: 80%;
-  font-size: 1.2rem;
-  text-align: center;
-  vertical-align: middle;
-  border-radius: 5px;
-}
-
-textarea {
-  border-width: 0px;
 }
 
 @media (max-width: 690px) {
@@ -111,7 +104,12 @@ textarea {
   .btn {
     font-size: 0.8rem;
   }
+  
   #password {
     width: 100%;
+  }
+
+  .criteria {
+    font-size: 0.8rem;
   }
 }
